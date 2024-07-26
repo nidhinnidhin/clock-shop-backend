@@ -9,7 +9,7 @@ SECRET_KEY = 'django-insecure--4zh0uxmm4%k4=vupay=(*6_rtu*vd(b+&)nb8!^bdur1!em+s
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', "clock-shop-backend.onrender.com"]
 
 INSTALLED_APPS = [
     'jazzmin',
@@ -175,8 +175,8 @@ if DEBUG:
 else:
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STRIPE_PUBLIC_KEY = 'pk_test_51LVzIiSHbelfXOXs2UwOPxn0UZuulmI2mtyUOnivfXahojRw7F5PsI6ngrI7eXke5oJ5yOSRpDPv8gQECEGfl4Jb00Ujnj9dD1'
 STRIPE_SECRET_KEY = 'sk_test_51LVzIiSHbelfXOXs1ho3iSSJYxD0r1uV1xJZQyz5z0ocBITBnaESKU0BUirvrqMsbruMAdCj424PaxU9iLPbOiOR002N9N1z9a'
