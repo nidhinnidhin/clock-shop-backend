@@ -7,9 +7,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure--4zh0uxmm4%k4=vupay=(*6_rtu*vd(b+&)nb8!^bdur1!em+s'
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', "clock-shop-backend.onrender.com"]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', "clock-shop-backend.onrender.com","https://click-shop-frontend.onrender.com"]
 
 INSTALLED_APPS = [
     'jazzmin',
@@ -175,8 +175,19 @@ if DEBUG:
 else:
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+if DEBUG:
+    CORS_ALLOWED_ORIGINS = [
+        "https://click-shop-frontend.onrender.com",
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+    ]
+
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = ['*']
+CORS_ALLOW_METHODS = ['*']
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 STRIPE_PUBLIC_KEY = 'pk_test_51LVzIiSHbelfXOXs2UwOPxn0UZuulmI2mtyUOnivfXahojRw7F5PsI6ngrI7eXke5oJ5yOSRpDPv8gQECEGfl4Jb00Ujnj9dD1'
 STRIPE_SECRET_KEY = 'sk_test_51LVzIiSHbelfXOXs1ho3iSSJYxD0r1uV1xJZQyz5z0ocBITBnaESKU0BUirvrqMsbruMAdCj424PaxU9iLPbOiOR002N9N1z9a'
@@ -185,6 +196,7 @@ STRIPE_SECRET_KEY = 'sk_test_51LVzIiSHbelfXOXs1ho3iSSJYxD0r1uV1xJZQyz5z0ocBITBna
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
+    "https://click-shop-frontend.onrender.com",
     "http://localhost:3000",
     "http://127.0.0.1:3000",
 ] 
